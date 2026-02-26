@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Leaving Cert Computer Science</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+
+    <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background-color: black;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-image: image()
+    }
+
+    .navbar {
+        position: sticky;
+        top: 0px;
+        background: rgba(0,0,0,0.85);
+        backdrop-filter: blur(6px);
+        padding: 16px;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        border-bottom: 1px solid;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        /* margin: 0 15px; */
+        font-size: 15px;
+        transition: 0.2s;
+    }
+
+    .navbar a:hover {
+        color: #6be3ff;
+        background-color: rgba(75, 117, 106, 0.85);
+        padding: 8px;
+        border-radius: 4px;
+        text-decoration: underline;
+    }
+
+    .header {
+        min-height: 300px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 26px;
+    }
+
+    .content {
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 40px;
+    }
+
+    ul a {
+        color:white;
+    }
+
+    ul a:hover {
+        color: lightblue;
+    }
+
+    h2 {
+        margin-top: 60px;
+    }
+
+    p {
+        line-height: 1.7;
+    }
+
+    hr {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border: 1px solid #222;
+        padding: 2px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="#brief">Meeting the Brief</a>
+        <a href="#basic">Basic Requirements</a>
+        <a href="#advanced">Advanced Requirements</a>
+        <a href="#design">Design</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#testing">Testing</a>
+        <a href="#references">References</a>
+    </div>
+
+    <div class="header">
+        <h1>Drought Prediction System</h1>
+    </div>
+
+    <div class="content">
+
+        <h2 id="brief">Meeting the Brief</h2>
+        <p>Video demonstration will go here.</p>
+
+        <hr>
+
+        <h2 id="basic">Basic Requirements</h2>
+        <ol>
+            <li>For the first basic requirement, the digital input used was a button on the physical embedded system which turned it on and the analogue input was the thermometer built into the micro:bit.</li>
+            <li>The second basic requirement asked for data collection - this gets completed by a datalogger on the micro:bit and it gets stored to a localised CSV file</li>
+            <li>With the third basic requirement, I used real time calculations based off immediately collected data - after normalising the information, the micro:bit would display a symbol indicating whether the drought in the soil was probable.</li>
+        </ol>
+
+        <hr>
+
+        <h2 id="advanced">Advanced Requirements</h2>
+        <p>Explain the drought risk model, simulations, and adaptive behaviour.</p>
+
+        <hr>
+
+        <h2 id="design">Design</h2>
+        <p>Explain the system architecture, sensors used, and flowchart.</p>
+
+        <hr>
+
+        <h2 id="implementation">Implementation</h2>
+        <p>Describe development process and challenges encountered.</p>
+
+        <hr>
+
+        <h2 id="testing">Testing</h2>
+        <p>Explain how the system was tested in different soil conditions.</p>
+
+        <hr>
+
+        <h2 id="references">References</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/html/">W3Schools HTML</a></li>
+            <li><a href="https://makecode.microbit.org/projects/soil-moisture/code">Micro:bit Setup for Moisture</a></li>
+            <li><a href="https://google.com">Lots of googling</a></li>
+        </ul>
+
+        <hr>
+
+    </div>
+
+</body>
+</html>
