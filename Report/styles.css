@@ -87,6 +87,7 @@ ul a:hover {
 
 .accordion {
     background-color: #0e1318;
+    font-family:'Courier New', Courier, monospace;
     color: #cce0ea;
     cursor: pointer;
     padding: 18px;
@@ -94,7 +95,7 @@ ul a:hover {
     border: none;
     text-align: left;
     outline: none;
-    font-size: 17px;
+    font-size: 14px;
     border-radius: 8px;
     transition: 0.4s;
     margin-bottom: 10px;
