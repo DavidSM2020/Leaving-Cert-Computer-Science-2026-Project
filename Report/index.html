@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <canvas id="bg-canvas" style="position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0.5;"></canvas>
 
     <div class="navbar">
         <a href="#brief">Meeting the Brief</a>
@@ -22,14 +23,14 @@
     </div>
 
     <div class="header">
-        <h1>Drought Prediction System</h1>
+        <h1 class="glow">Drought Prediction System</h1>
         <p class="exam-number"><i>Exam Number: 335097</i></p>
     </div>
 
     <div class="content">
 
         <h2 id="brief">Meeting the Brief</h2>
-        <video width="640" height="480" controls>
+        <video width="640" height="360" controls>
             <source src="video.mp4" type="video/mp4">
             <p>Your browser does not support this video tag.</p>
         </video>
@@ -152,6 +153,11 @@
             <li><a href="https://www.drought.gov/what-is-drought/monitoring-drought#:~:text=Key%20Takeaways%20*%20Drought%20indicators%20describe%20drought,combination%2C%20or%20in%20a%20large%20composite%20indicator.">Monitoring Drought</a></li>
             <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0022169424003147">Soil moisture vs temperature impact</a></li>
             <li><a href="https://stackoverflow.com/questions/15597167/css-opacity-gradient">Navbar Gradient "Template"</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">MDN Canvas API</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc">Drawing Background dots</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame">Animation Loop</a></li>
+            <li><a href="https://vincentgarreau.com/particles.js/">Connecting lines</a></li>
+            <li><a href="https://www.w3schools.com/howto/howto_css_glowing_text.asp">Glowing Text</a></li>
             <li><a href="https://www.grammarly.com/grammar-check">Grammarly</a></li>
         </ul>
 
@@ -185,7 +191,7 @@
         </tr>
         <tr>
             <td>Total</td>
-            <td>2050 Words</td>
+            <td>~2050 Words</td>
         </tr>
         </table>
 
@@ -611,5 +617,54 @@ print("\nGraph saved as 'whatif_scenarios.png'")</code></pre>
         }
     </script>
 
+    <script>
+    const canvas = document.getElementById("bg-canvas");
+    const ctx = canvas.getContext("2d");
+    let W, H, particles = [];
+
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener("resize", resize);
+
+    for (let i = 0; i < 80; i++) {
+        particles.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            r: Math.random() * 1.5 + 0.5,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            a: Math.random() * 0.5 + 0.1
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+            if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(107,227,255,${p.a})`;
+            ctx.fill();
+        });
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+                const d = Math.sqrt(dx*dx + dy*dy);
+                if (d < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(107,227,255,${(1 - d/120) * 0.12})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+    </script>
 </body>
 </html>
