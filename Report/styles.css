@@ -1,12 +1,15 @@
+/* I ended up finishing the project with about a week to spare and i wanted to make the website look snazzy so I spent lots of time styling everything */
+/* A lot of my sources are sited in the references! */
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-    background-color: black;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #080b0f;
+    color: #cce0ea;
+    font-family: 'Sora', 'Segoe UI', sans-serif;
     padding-bottom: 20px;
 }
 
@@ -15,8 +18,8 @@ body {
     top: 0px;
     background: rgba(0, 0, 0, 0.369);
     backdrop-filter: blur(6px);
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #080b0f 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #080b0f 50%, transparent 100%);
     padding: 20px;
     padding-bottom: 40px;
     z-index: 1000;
@@ -25,22 +28,28 @@ body {
     align-items: center;
     gap: 20px;
     text-align: center;
+    flex-wrap: wrap;
 }
 
 .navbar a {
-    color: white;
+    color: #cce0ea;
     text-decoration: none;
     /* margin: 0 15px; */
-    font-size: 15px;
-    transition: 0.2s;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all 0.18s ease;
+    text-transform: uppercase;
 }
+
+a {color: rgba(107, 227, 255, 1);}
 
 .navbar a:hover {
     color: #6be3ff;
-    background-color: rgba(75, 117, 106, 0.85);
-    padding: 8px;
-    border-radius: 4px;
-    text-decoration: underline;
+    background-color: rgba(107, 227, 255, 0.1);
+    border-radius: 1px 5px 5px 1px;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-left: 3px solid rgba(107, 227, 255, 0.4);
 }
 
 .header {
@@ -69,7 +78,7 @@ body {
 }
 
 ul a {
-    color:white;
+    color: white;
 }
 
 ul a:hover {
@@ -77,45 +86,56 @@ ul a:hover {
 }
 
 .accordion {
-  background-color: rgb(131, 196, 216);
-  color: #ffffff;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 17px;
-  border-radius: 8px;
-  transition: 0.4s;
-  margin-bottom: 10px;
+    background-color: #0e1318;
+    color: #cce0ea;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 17px;
+    border-radius: 8px;
+    transition: 0.4s;
+    margin-bottom: 10px;
+    border: 1px solid rgba(107, 227, 255, 0.15);
 }
 
-.active, .accordion:hover {
-  background-color: rgb(131, 196, 216);
+.accordion:hover {
+    background-color: #141b22;
+    color: #6be3ff;
+}
+
+.active {
+    margin-bottom: 0px;
+    border-radius: 8px 8px 0 0;
 }
 
 .panel {
-  padding: 0 18px;
-  background-color: black;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.panel pre {
+    margin-top: 0px;
+    border-radius: 0 0 8px 8px;
 }
 
 pre {
-    background-color: #111;
-    border: 1px solid #333;
-    /* border-radius: 8px; */
+    background: #0f0f0f;
+    color: #66eff6;
+    border: 1px solid #222;
     padding: 20px;
     overflow-x: auto;
-    font-size: 14px;
+    margin-top: 15px;
+    border-radius: 8px;
 }
 
 code {
-    font-family: 'Courier New', 'Courier New', Courier, monospace;
-    color: white;
-    white-space: pre;
+    font-family: "Courier New", monospace;
+    color: #d6f7ff;
 }
 
 /* Firefox */
@@ -139,8 +159,33 @@ code {
     border-radius: 4px;
 }
 
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  background-color:#080b0f;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 15px #85d4d4, 0 0 20px #85d4d4, 0 0 30px #85d4d4;
+  }
+  to {
+    text-shadow: 0 0 15px #85d4d4, 0 0 20px #85d4d4, 0 0 50px #85d4d4;
+  }
+}
+
 h2 {
     margin-top: 60px;
+    border-left: 3px solid rgba(94, 190, 211, 0.7);
+    padding-left: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: linear-gradient(to right, rgba(107, 227, 255, 0.05), transparent);
+    border-radius: 0 6px 6px 0;
 }
 
 p {
@@ -150,21 +195,45 @@ p {
 hr {
     margin-top: 40px;
     margin-bottom: 40px;
-    border: 1px solid #222;
-    padding: 2px;
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 208, 255, 0.4) 20%,
+        rgba(0, 208, 255, 0.4) 80%,
+        transparent 100%
+    );
+    padding: 1px;
 }
 
 li {
     padding: 3px;
 }
 
-td, th {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #DDD
-}
-
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: auto;
+    min-width: 300px;
+    margin-top: 15px;
+    border: 1px solid #222;
+}
+
+th {
+    background: #0e1318;
+    color: #6be3ff;
+    padding: 10px;
+    border: 1px solid #1a2a33;
+}
+
+td {
+    border-color: #1a2a33;
+    padding: 10px;
+    border: 1px solid #1a2a33;
+
+}
+
+video {
+    border: 1px solid #222;
+    border-radius: 10px;
 }
