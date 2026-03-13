@@ -39,6 +39,7 @@ body {
     letter-spacing: 1px;
     transition: all 0.18s ease;
     text-transform: uppercase;
+    padding: 6px 10px;
 }
 
 a {color: rgba(107, 227, 255, 1);}
@@ -87,7 +88,7 @@ ul a:hover {
 
 .accordion {
     background-color: #0e1318;
-    font-family:'Courier New', Courier, monospace;
+    font-family: monospace;
     color: #cce0ea;
     cursor: pointer;
     padding: 18px;
@@ -205,7 +206,6 @@ hr {
         rgba(0, 208, 255, 0.4) 80%,
         transparent 100%
     );
-    padding: 1px;
 }
 
 li {
@@ -234,10 +234,14 @@ td {
 
 }
 
-video {
+video, img {
     border: 1px solid #222;
     border-radius: 10px;
     max-width: 80%;
     height: auto;
     width: auto\9; /* ie8 */
+}
+
+img {
+    max-width: 100%
 }
