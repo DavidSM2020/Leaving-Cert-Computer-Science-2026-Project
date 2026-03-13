@@ -100,6 +100,7 @@
         <h2 id="create">Create</h2>
         <p>Development started off with setting up the soil moisture sensor on the micro:bit in <a href="https://makecode.microbit.org/">MakeCode</a>, then converting the logic to MicroPython. The normalisation formula was developed to convert raw sensor values (0–1023) into more manageable 0–1 factors. A weighted drought probability formula was chosen which gave moisture 65% of the weight and temperature 35%, since soil moisture is a more impactful indicator of a soil sample's drought conditions.</p>
         <p>Serial output was then added so Python could receive the data in real-time. <code>main_reading.py</code> was built to listen on the serial port and log to a CSV file, followed by <code>main_graphing.py</code> to analyse and visualise the collected data. Finally, <code>main_whatif.py</code> was written to simulate what-if scenarios without needing the hardware running.</p>
+        <img src="images/whatif_scenarios.png">
         <p>Challenges encountered during development included:</p>
         <ul>
             <li>The micro:bit's built-in datalogger conflicted with serial logging - both could not run simultaneously, so serial was chosen as it allowed real-time data transfer to Python. This is noted as a comment in the micro:bit code.</li>
@@ -627,7 +628,7 @@ print("\nGraph saved as 'whatif_scenarios.png'")</code></pre>
     resize();
     window.addEventListener("resize", resize);
 
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 500; i++) {
         particles.push({
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
